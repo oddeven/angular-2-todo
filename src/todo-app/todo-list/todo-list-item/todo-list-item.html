@@ -3,6 +3,7 @@
        [class.ion-android-checkbox-outline]="todo.done"
        tabindex="0">
   <input type="checkbox"
-         [checked]="todo.done">
+         [checked]="todo.done"
+         (change)="toggleDone()">
 </label>
 <span [class.todo-list-item__title--done]="todo.done">{{todo.title}}</span>
