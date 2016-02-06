@@ -1,6 +1,6 @@
 <ul class="todo-list__list">
   <li *ngFor="#todo of todoList"
       class="todo-list__item">
-    {{todo.title}}
+    <todo-list-item [todo]="todo"></todo-list-item>
   </li>
 </ul>
