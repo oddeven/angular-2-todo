@@ -1,6 +1,7 @@
 import {Component, Inject} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
 import {DataStore} from '../store/data-store';
+import {TodoList} from './todo-list/todo-list';
 
 import template from './todo-app.html!text';
 import './todo-app.scss!scss';
@@ -11,7 +12,8 @@ import './todo-app.scss!scss';
   host: {
     class: 'todo-app'
   },
-  providers: [DataStore]
+  providers: [DataStore],
+  directives: [TodoList]
 })
 export class TodoApp {
   todos: Observable<Array<String>>;
