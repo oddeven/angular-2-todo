@@ -1,0 +1,8 @@
+<label class="todo-list-item__checkbox"
+       [class.ion-android-checkbox-outline-blank]="!todo.done"
+       [class.ion-android-checkbox-outline]="todo.done"
+       tabindex="0">
+  <input type="checkbox"
+         [checked]="todo.done">
+</label>
+<span [class.todo-list-item__title--done]="todo.done">{{todo.title}}</span>
