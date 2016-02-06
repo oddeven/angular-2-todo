@@ -11,9 +11,27 @@ import './todo-list-item.scss!scss';
   template
 })
 export class TodoListItem {
+  editMode: Boolean;
+  editedTitle: String;
   @Input() todo: TodoItem;
   @Output() todoUpdated: EventEmitter = new EventEmitter();
-  
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+
+    if (!this.editMode && this.editedTitle) {
+      this.todoUpdated.next({
+        title: this.editedTitle,
+        done: this.todo.done
+      });
+      this.editedTitle = null;
+    }
+  }
+
+  editTitle(title: String) {
+    this.editedTitle = title;
+  }
+
   toggleDone() {
     this.todoUpdated.next({
       title: this.todo.title,
