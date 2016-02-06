@@ -1,0 +1,18 @@
+@import "src/settings.scss";
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  @include default-font();
+}
+
+button {
+  cursor: pointer;
+}
+
+.todo-app {
+  max-width: 800px;
+  margin: 0 auto;
+}

@@ -1,0 +1,7 @@
+<h1>TODO's</h1>
+<todo-count></todo-count>
+<todo-list [todoList]="todos | async"
+           (todoUpdated)="onTodoUpdated($event)"
+           (todoDeleted)="onTodoDeleted($event)"></todo-list>
+<h2>Add TODO</h2>
+<enter-todo (todoAdded)="onTodoAdded($event)"></enter-todo>

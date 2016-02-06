@@ -1,0 +1,21 @@
+<label class="todo-list-item__checkbox"
+       [class.ion-android-checkbox-outline-blank]="!todo.done"
+       [class.ion-android-checkbox-outline]="todo.done"
+       tabindex="0">
+  <input type="checkbox"
+         [checked]="todo.done"
+         (change)="toggleDone()">
+</label>
+<span *ngIf="!editMode"
+      [class.todo-list-item__title--done]="todo.done">{{todo.title}}</span>
+<span *ngIf="editMode"
+      contenteditable="true"
+      [textContent]="todo.title"
+      (input)="editTitle($event.target.textContent)"
+      class="todo-list-item__input"></span>
+<button (click)="toggleEditMode()"
+        class="todo-list-item__edit-save-button"
+        [class.ion-android-done]="editMode"
+        [class.ion-android-create]="!editMode"></button>
+<button (click)="deleteItem()"
+        class="todo-list-item__delete-button ion-android-delete"></button>
