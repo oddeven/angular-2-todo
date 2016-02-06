@@ -1,0 +1,6 @@
+<span #titleElement
+      (input)="updateTitle($event.target.textContent)"
+      class="enter-todo__input"
+      contenteditable="true"></span>
+<button (click)="addTodo()"
+        class="enter-todo__button">Add</button>

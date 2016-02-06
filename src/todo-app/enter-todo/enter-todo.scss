@@ -1,0 +1,20 @@
+.enter-todo {
+  display: flex;
+  width: 100%;
+
+  &__input {
+    flex: auto;
+    margin-right: 10px;
+    border: 2px solid black;
+    padding: 10px;
+  }
+
+  &__button {
+    background: black;
+    padding: 10px 20px;
+    border: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 20px;
+  }
+}
