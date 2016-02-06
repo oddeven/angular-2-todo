@@ -16,6 +16,7 @@ import './todo-list.scss!scss';
 export class TodoList {
   @Input() todoList: Array<TodoItem>;
   @Output() todoUpdated: EventEmitter = new EventEmitter();
+  @Output() todoDeleted: EventEmitter = new EventEmitter();
 
   onTodoUpdated(todo: TodoItem, updates: {title: String, done: Boolean}) {
     this.todoUpdated.next({
@@ -23,5 +24,9 @@ export class TodoList {
       title: updates.title,
       done: updates.done
     });
+  }
+
+  onTodoDeleted(todo: TodoItem) {
+    this.todoDeleted.next(todo);
   }
 }

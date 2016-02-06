@@ -15,6 +15,7 @@ export class TodoListItem {
   editedTitle: String;
   @Input() todo: TodoItem;
   @Output() todoUpdated: EventEmitter = new EventEmitter();
+  @Output() todoDeleted: EventEmitter = new EventEmitter();
 
   toggleEditMode() {
     this.editMode = !this.editMode;
@@ -30,6 +31,10 @@ export class TodoListItem {
 
   editTitle(title: String) {
     this.editedTitle = title;
+  }
+
+  deleteItem() {
+    this.todoDeleted.next();
   }
 
   toggleDone() {
