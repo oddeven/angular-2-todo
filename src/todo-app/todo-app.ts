@@ -1,6 +1,6 @@
 import {Component, Inject} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
-import {DataStore} from '../store/data-store';
+import {DataStore, TodoItem} from '../store/data-store';
 import {TodoList} from './todo-list/todo-list';
 
 import template from './todo-app.html!text';
@@ -20,5 +20,9 @@ export class TodoApp {
 
   constructor(@Inject(DataStore) private dataStore: DataStore) {
     this.todos = dataStore.observable;
+  }
+
+  onTodoUpdated(updates: {todo: TodoItem, title: String, done: Boolean}) {
+    this.dataStore.updateItem(updates.todo, updates.title, updates.done);
   }
 }
