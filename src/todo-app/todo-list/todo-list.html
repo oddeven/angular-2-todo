@@ -2,6 +2,7 @@
   <li *ngFor="#todo of todoList"
       class="todo-list__item">
     <todo-list-item [todo]="todo"
-                    (todoUpdated)="onTodoUpdated(todo, $event)"></todo-list-item>
+                    (todoUpdated)="onTodoUpdated(todo, $event)"
+                    (todoDeleted)="onTodoDeleted(todo)"></todo-list-item>
   </li>
 </ul>
