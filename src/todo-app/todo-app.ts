@@ -2,6 +2,7 @@ import {Component, Inject} from 'angular2/core';
 import {Observable} from 'rxjs/Rx';
 import {DataStore, TodoItem} from '../store/data-store';
 import {TodoList} from './todo-list/todo-list';
+import {EnterTodo} from './enter-todo/enter-todo';
 
 import template from './todo-app.html!text';
 import './todo-app.scss!scss';
@@ -13,7 +14,7 @@ import './todo-app.scss!scss';
     class: 'todo-app'
   },
   providers: [DataStore],
-  directives: [TodoList]
+  directives: [TodoList, EnterTodo]
 })
 export class TodoApp {
   todos: Observable<Array<String>>;
@@ -28,5 +29,9 @@ export class TodoApp {
 
   onTodoDeleted(todo: TodoItem) {
     this.dataStore.removeItem(todo);
+  }
+
+  onTodoAdded(title: String) {
+    this.dataStore.addItem(title, false);
   }
 }
