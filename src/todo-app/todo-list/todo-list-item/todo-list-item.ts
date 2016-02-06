@@ -1,4 +1,4 @@
-import {Component, Input} from 'angular2/core';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import {TodoItem} from '../../store/data-store';
 import template from './todo-list-item.html!text';
 import './todo-list-item.scss!scss';
@@ -12,4 +12,12 @@ import './todo-list-item.scss!scss';
 })
 export class TodoListItem {
   @Input() todo: TodoItem;
+  @Output() todoUpdated: EventEmitter = new EventEmitter();
+  
+  toggleDone() {
+    this.todoUpdated.next({
+      title: this.todo.title,
+      done: !this.todo.done
+    });
+  }
 }
