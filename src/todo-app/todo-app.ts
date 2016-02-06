@@ -3,6 +3,7 @@ import {Observable} from 'rxjs/Rx';
 import {DataStore, TodoItem} from '../store/data-store';
 import {TodoList} from './todo-list/todo-list';
 import {EnterTodo} from './enter-todo/enter-todo';
+import {TodoCount} from './todo-count/todo-count';
 
 import template from './todo-app.html!text';
 import './todo-app.scss!scss';
@@ -14,7 +15,7 @@ import './todo-app.scss!scss';
     class: 'todo-app'
   },
   providers: [DataStore],
-  directives: [TodoList, EnterTodo]
+  directives: [TodoList, EnterTodo, TodoCount]
 })
 export class TodoApp {
   todos: Observable<Array<String>>;
