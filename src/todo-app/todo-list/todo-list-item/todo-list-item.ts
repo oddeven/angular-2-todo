@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
 import {TodoItem} from '../../store/data-store';
 import template from './todo-list-item.html!text';
 import './todo-list-item.scss!scss';
@@ -8,7 +8,8 @@ import './todo-list-item.scss!scss';
   host: {
     class: 'todo-list-item'
   },
-  template
+  template,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoListItem {
   editMode: Boolean;

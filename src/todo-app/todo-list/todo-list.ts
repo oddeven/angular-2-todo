@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from 'angular2/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from 'angular2/core';
 import {TodoListItem} from './todo-list-item/todo-list-item';
 import {TodoItem, DataStore} from '../store/data-store';
 
@@ -11,7 +11,8 @@ import './todo-list.scss!scss';
     class: 'todo-list'
   },
   template,
-  directives: [TodoListItem]
+  directives: [TodoListItem],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoList {
   @Input() todoList: Array<TodoItem>;

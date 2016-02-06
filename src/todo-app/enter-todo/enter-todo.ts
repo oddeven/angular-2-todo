@@ -1,4 +1,4 @@
-import {Component, Output, EventEmitter, ViewChild, ElementRef} from 'angular2/core';
+import {Component, Output, EventEmitter, ViewChild, ElementRef, ChangeDetectionStrategy} from 'angular2/core';
 
 import template from './enter-todo.html!text';
 import './enter-todo.scss!scss';
@@ -8,7 +8,8 @@ import './enter-todo.scss!scss';
   host: {
     class: 'enter-todo'
   },
-  template
+  template,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EnterTodo {
   title: String;
