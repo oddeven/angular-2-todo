@@ -25,4 +25,8 @@ export class TodoApp {
   onTodoUpdated(updates: {todo: TodoItem, title: String, done: Boolean}) {
     this.dataStore.updateItem(updates.todo, updates.title, updates.done);
   }
+
+  onTodoDeleted(todo: TodoItem) {
+    this.dataStore.removeItem(todo);
+  }
 }

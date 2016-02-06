@@ -1,3 +1,4 @@
 <h1>TODO's</h1>
 <todo-list [todoList]="todos | async"
-           (todoUpdated)="onTodoUpdated($event)"></todo-list>
+           (todoUpdated)="onTodoUpdated($event)"
+           (todoDeleted)="onTodoDeleted($event)"></todo-list>
